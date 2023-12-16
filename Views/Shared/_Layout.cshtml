@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CarWashClient</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CarWashClient.styles.css" asp-append-version="true" />
+    <script src="https://kit.fontawesome.com/db61d5efa5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="sidebar">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="text-align:center; color: white;">
+                @* <img src="C:\Users\aquay\Downloads\ls-screenshot.68-removebg-preview.png" /> *@
+                VELOCITY
+                <h5>Car Wash</h5>
+            </a>
+            <a class="nav-link text-dark dropdown" asp-area="" asp-controller="Washer" asp-action="Index"><i class="fa-solid fa-person" style="color: white; padding-right: 5px;"></i><span style="color: white;">Washers</span></a>
+            <a class="nav-link text-dark dropdown" asp-area="" asp-controller="Vehicle" asp-action="Index"><i class="fa-solid fa-car-side" style="color: white; padding-right: 5px;"></i><span style="color: white;">Vehicles</span></a>
+            <a class="nav-link text-dark dropdown" asp-area="" asp-controller="PaymentMethod" asp-action="Index"><i class="fa-solid fa-credit-card" style="color: white; padding-right: 5px;"></i><span style="color: white;">Payment Methods</span></a>
+            <a class="nav-link text-dark dropdown" asp-area="" asp-controller="Bill" asp-action="Index"><i class="fa-solid fa-file-invoice-dollar" style="color: white; padding-right: 5px;"></i><span style="color: white;">Bills</span></a>
+        </div>
+       @*  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Velocity Car Wash</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <div class="dropdown">
+                        <a class="btn dropdown-toggle text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Admin Controls
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="nav-link text-dark dropdown" asp-area="" asp-controller="Washer" asp-action="Index">Washer List</a></li>
+                            <li><a class="nav-link text-dark dropdown" asp-area="" asp-controller="Vehicle" asp-action="Index">Vehicle List</a></li>
+                            <li><a class="nav-link text-dark dropdown" asp-area="" asp-controller="PaymentMethod" asp-action="Index">Payment Method List</a></li>
+                            <li><a class="nav-link text-dark dropdown" asp-area="" asp-controller="Bill" asp-action="Index">Bill List</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <a class="nav-link text-dark dropdown" asp-area="" asp-controller="Bill" asp-action="Create">Create Bill</a>
+            </div>
+        </nav> *@
+    </header>
+    @* <div class="sidebar">
+        <div class="profile">
+        </div>
+        <ul>
+            <li><a class="nav-link text-dark dropdown" asp-area="" asp-controller="Washer" asp-action="Index"><i class="fa-solid fa-person"></i><span>Washers</span></a></li>
+            <li><a class="nav-link text-dark dropdown" asp-area="" asp-controller="Vehicle" asp-action="Index"><i class="fa-solid fa-car-side"></i><span>Vehicles</span></a></li>
+            <li><a class="nav-link text-dark dropdown" asp-area="" asp-controller="PaymentMethod" asp-action="Index"><i class="fa-solid fa-car-side"></i><span>Payment Methods</span></a></li>
+            <li><a class="nav-link text-dark dropdown" asp-area="" asp-controller="Bill" asp-action="Index"><i class="fa-solid fa-car-side"></i><span>Bills</span></a></li>
+        </ul>
+    </div> *@
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <footer class="border-top footer text-muted page-footer">
+        <div class="container">
+            &copy; 2023 - CarWashClient - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

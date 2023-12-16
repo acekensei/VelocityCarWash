@@ -1,0 +1,144 @@
+﻿<section>
+    @* @model CarWashClient.Models.ViewModels.BillVM
+
+    @{
+    ViewData["Title"] = "Create A Bill";
+    }
+
+    <h4>Create A Bill</h4>
+    <hr />
+    <div class="row">
+    <div class="col-md-4">
+    <form asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-group">
+    <label asp-for="CustomerName" class="control-label">Customer Name</label>
+    <input asp-for="CustomerName" class="form-control" />
+    <span asp-validation-for="CustomerName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="Email" class="control-label">Email Address</label>
+    <input asp-for="Email" class="form-control" />
+    <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="PhoneNumber" class="control-label">Phone Number</label>
+    <input asp-for="PhoneNumber" class="form-control" />
+    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="SelectedWasherId" class="control-label">Washers Available</label>
+    @if(Model.WasherList == null)
+    {
+    <select asp-for="SelectedWasherId" asp-items="@Model.WasherList" class="form-control">
+    <options disabled selected>Washers Occupied</options>
+    </select>
+    <span asp-validation-for="SelectedWasherId" class="text-danger"></span>
+    }
+    else
+    {
+    <select asp-for="SelectedWasherId" asp-items="@Model.WasherList" class="form-control">
+    <options disabled selected>Select A Car Washer</options>
+    </select>
+    <span asp-validation-for="SelectedWasherId" class="text-danger"></span>
+    }
+    </div>
+    <div class="form-group">
+    <label asp-for="SelectedVehicleId" class="control-label">Vehicle</label>
+    <select asp-for="SelectedVehicleId" asp-items="@Model.VehicleList" class="form-control">
+    <options disabled selected>Select Your Car Type</options>
+    </select>
+    <span asp-validation-for="SelectedVehicleId" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+    <label asp-for="SelectedPMethodId" class="control-label">Payment Method</label>
+    <select asp-for="SelectedPMethodId" asp-items="@Model.PMethodList" class="form-control">
+    <options disabled selected>Select Your Payment Method</options>
+    </select>
+    <span asp-validation-for="SelectedPMethodId" class="text-danger"></span>
+    </div>
+    <div class="form-group mt-2">
+    <input type="submit" value="Create" class="btn btn-primary" />
+    <a asp-action="Index" class="btn btn-outline-warning">Back</a>
+    </div>
+    </form>
+    </div>
+    </div>
+
+    @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+    *@
+</section>
+
+@model CarWashClient.Models.ViewModels.BillVM
+
+@{
+    ViewData["Title"] = "Create A Bill";
+}
+
+<h3 class="bill-header-h3">Create A Bill</h3>
+<hr />
+<div class="row">
+    <div class="col-md-6 mx-auto pb-5">
+        <form asp-action="Create" class="border p-4 rounded shadow">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CustomerName" class="control-label">Customer Name</label>
+                <input asp-for="CustomerName" class="form-control" />
+                <span asp-validation-for="CustomerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label">Email Address</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber" class="control-label">Phone Number</label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedWasherId" class="control-label">Washers Available</label>
+                @if (Model.WasherList == null)
+                {
+                    <select asp-for="SelectedWasherId" asp-items="@Model.WasherList" class="form-control">
+                        <option disabled selected>Washers Occupied</option>
+                    </select>
+                    <span asp-validation-for="SelectedWasherId" class="text-danger"></span>
+                }
+                else
+                {
+                    <select asp-for="SelectedWasherId" asp-items="@Model.WasherList" class="form-control">
+                        <option disabled selected>Select A Car Washer</option>
+                    </select>
+                    <span asp-validation-for="SelectedWasherId" class="text-danger"></span>
+                }
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedVehicleId" class="control-label">Vehicle</label>
+                <select asp-for="SelectedVehicleId" asp-items="@Model.VehicleList" class="form-control">
+                    <option disabled selected>Select Your Car Type</option>
+                </select>
+                <span asp-validation-for="SelectedVehicleId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SelectedPMethodId" class="control-label">Payment Method</label>
+                <select asp-for="SelectedPMethodId" asp-items="@Model.PMethodList" class="form-control">
+                    <option disabled selected>Select Your Payment Method</option>
+                </select>
+                <span asp-validation-for="SelectedPMethodId" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-4 text-center">
+                <a asp-action="Index" class="btn btn-warning pt-1 pb-1 btn-lg ml-3">Back</a>
+                <button type="submit" class="btn btn-lg pt-1 pb-1" style="background-color: #C68B96">Create</button>
+            </div>
+        </form> 
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

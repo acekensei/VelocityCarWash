@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CarWashClient.Models.PaymentMethod>
+
+@{
+    ViewData["Title"] = "List of Payment Methods";
+}
+
+<h3 class="bill-header-h3">List of Payment Methods</h3>
+
+<div class="table-responsive" style="margin-top: -10px;">
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Id)
+                </th>
+                <th>
+                    @* @Html.DisplayNameFor(model => model.MethodType) *@
+                    Method Type
+                </th>
+                <th>
+                    <a asp-action="Create" class="btn pt-1 pb-1 pr-1 pl-1" style="background-color: #C68B96">Add</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MethodType)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

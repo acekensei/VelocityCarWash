@@ -1,0 +1,53 @@
+﻿@model CarWashClient.Models.Bill
+
+@{
+    ViewData["Title"] = "ViewBill";
+}
+
+<div class="container mt-4 mb-4 receipt-box" style="margin-left: -15px;">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="border border-dark rounded p-4">
+                <h1 class="text-center">Receipt</h1>
+
+                <div class="text-center">
+                    <h4>Thank You For Coming!</h4>
+                    <hr />
+                </div>
+
+                <dl class="row">
+                    <dt class="col-sm-4">Customer Name:</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.CustomerName)</dd>
+
+                    <dt class="col-sm-4">Email:</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Email)</dd>
+
+                    <dt class="col-sm-4">Phone Number:</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.PhoneNumber)</dd>
+
+                    <dt class="col-sm-4">Date:</dt>
+                    <dd class="col-sm-8">@DateTime.Today.ToShortDateString()</dd>
+                </dl>
+
+                <hr />
+
+                <dl class="row">
+                    <dt class="col-sm-4">Washer:</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Washer.WasherName)</dd>
+
+                    <dt class="col-sm-4">Vehicle Type:</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Vehicle.CarType)</dd>
+
+                    <dt class="col-sm-4">Payment Method:</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.PaymentMethod.MethodType)</dd>
+
+                    <dt class="col-sm-4">Charge:</dt>
+                    <dd class="col-sm-8">$@Html.DisplayFor(model => model.Charge) USD</dd>
+                </dl>
+            </div>
+            <div class="mt-4 text-center">
+                <a asp-action="Index" class="btn btn-warning">Back</a>
+            </div>
+        </div>
+    </div>
+</div>

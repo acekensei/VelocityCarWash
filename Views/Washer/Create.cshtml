@@ -1,0 +1,35 @@
+﻿@model CarWashClient.Models.Washer
+
+@{
+    ViewData["Title"] = "Add A Washer";
+}
+
+<h3 class="bill-header-h3">Add A Washer</h3>
+<hr />
+<div class="row">
+    <div class="col-md-6 mx-auto pb-5">
+        <form asp-action="Create" class="border p-4 rounded shadow">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="WasherName" class="control-label"></label>
+                <input asp-for="WasherName" class="form-control" />
+                <span asp-validation-for="WasherName" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check pt-3">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsAvailable" /> Is Available @* @Html.DisplayNameFor(model => model.IsAvailable) *@
+                </label>
+            </div>
+            <div class="form-group mt-4 text-center">
+                <a asp-action="Index" class="btn btn-warning pt-1 pb-1 btn-lg ml-3">Back</a>
+                <input type="submit" value="Create" class="btn btn-lg pt-1 pb-1" style="background-color: #C68B96" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
